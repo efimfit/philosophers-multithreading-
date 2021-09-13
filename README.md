@@ -30,20 +30,6 @@ A semaphore allows or denies access to a resource, which depends on how it is co
 **Binary semaphores** are very similar to counting semaphores, but their value is limited to 0 and 1. In this type of semaphore, the wait operation only works if semaphore = 1, and the signal operation succeeds when semaphore = 0. it is Easier to implement than to count semaphores.  
 ![](https://github.com/markveligod/philosophers-/raw/master/img/3.png)  
 
-The program below is a step-by-step implementation that includes using and declaring a semaphore.  
-```
-Shared var mutex: semaphore = 1;
-Process i
-    begin
-    .
-    .
-    P(mutex);
-    execute CS;
-    V(mutex);
-    .
-    .
-    End;
-```
 ### Waiting and signaling operations in semaphores...
 Both of these operations are used to implement process synchronization. The purpose of this semaphore operation is to get a mutual exception.  
 **Wait for the operation.** This type of semaphore operation helps you control the entry of a task into a critical section. However, if the wait value is positive, the value of the wait argument X is reduced. If the value is negative or zero, no operation is performed. This is also called the P (S) operation. After decreasing the semaphore value, which becomes negative, the command is held until the required conditions are met.  
@@ -75,7 +61,3 @@ Copy CodeP(S)
 |Types|Semaphore types are considered semaphore and binary semaphore|Mutex has no subtypes.|
 |Operation|The semaphore value is changed using the wait() and signal() operations.|The mutex object is locked or unlocked.|
 |Employment resources|It is busy if all resources are in use, and the process requesting the resource performs a wait () operation and blocks until the semaphore count is > 1.|If the object is already locked, the process requesting resources waits and is logged in by the system before releasing the lock.|
-
-## Run the project
-<img src="https://github.com/markveligod/philosophers-/raw/master/img/4.gif">  
-
